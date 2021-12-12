@@ -1,0 +1,129 @@
+@import url("https://fonts.googleapis.com/css?family=Open+Sans&display=swap");
+body {
+  background: #282c34;
+  color: #fff;
+  font-family: 'Open Sans', sans-serif;
+  padding: 30px;
+  text-align: center;
+}
+
+h1 {
+  font-weight: lighter;
+}
+
+p {
+  color: #999;
+  font-size: 0.8rem;
+}
+
+.btn {
+  background: #0064e7;
+  border: none;
+  border-radius: 15px;
+  padding: 10px 25px;
+  color: #fff;
+  font-family: inherit;
+  margin: 20px 10px;
+  text-transform: uppercase;
+  outline: none;
+  transition: .2s;
+  cursor: pointer;
+}
+
+.btn:hover {
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
+}
+
+.text-input {
+  background: none;
+  border: none;
+  color: #fff;
+  border-bottom: 2px solid #0064e7;
+  padding: 8px 25px 8px 5px;
+  font-family: inherit;
+  outline: none;
+  opacity: 0.6;
+  transition: .3s;
+}
+
+.text-input:focus {
+  opacity: 1;
+}
+
+.welcome-form {
+  display: none;
+}
+
+.messages-section {
+  margin-bottom: 100px;
+  display: none;
+}
+
+.messages-section__list {
+  max-width: 400px;
+  list-style-type: none;
+  padding: 0;
+  margin: 20px auto 40px auto;
+}
+
+.message {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+}
+
+.message--self {
+  align-items: flex-end;
+}
+
+.message--received {
+  -webkit-animation: fadeIn;
+          animation: fadeIn;
+  -webkit-animation-duration: 3s;
+          animation-duration: 3s;
+}
+
+.message__author {
+  font-size: 0.8rem;
+  font-weight: bold;
+  color: #999;
+  text-align: right;
+}
+
+.message__content {
+  background: #444444;
+  border: none;
+  border-radius: 15px 5px 15px 15px;
+  padding: 10px 25px;
+  color: #fff;
+  font-size: 0.9rem;
+  max-width: 200px;
+}
+
+.message--self .message__content {
+  background: #3498db;
+}
+
+.show {
+  display: block;
+}
+
+@-webkit-keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbIi4uL3Nhc3Mvc3R5bGUuc2NzcyIsInN0eWxlLmNzcyJdLCJuYW1lcyI6W10sIm1hcHBpbmdzIjoiQUFBQSw2RUFBWTtBQUVaO0VBQ0UsbUJBQW1CO0VBQ25CLFdBQVc7RUFDWCxvQ0FBb0M7RUFDcEMsYUFBYTtFQUNiLGtCQUFrQjtBQ0FwQjs7QURHQTtFQUNFLG9CQUFvQjtBQ0F0Qjs7QURHQTtFQUNFLFdBQVc7RUFDWCxpQkFBaUI7QUNBbkI7O0FER0E7RUFDRSxtQkFBbUI7RUFDbkIsWUFBWTtFQUNaLG1CQUFtQjtFQUNuQixrQkFBa0I7RUFDbEIsV0FBVztFQUNYLG9CQUFvQjtFQUNwQixpQkFBaUI7RUFDakIseUJBQXlCO0VBQ3pCLGFBQWE7RUFDYixlQUFlO0VBQ2YsZUFBZTtBQ0FqQjs7QURHQTtFQUNFLHVDQUFvQztBQ0F0Qzs7QURHQTtFQUNFLGdCQUFnQjtFQUNoQixZQUFZO0VBQ1osV0FBVztFQUNYLGdDQUFnQztFQUNoQyx5QkFBeUI7RUFDekIsb0JBQW9CO0VBQ3BCLGFBQWE7RUFDYixZQUFZO0VBQ1osZUFBZTtBQ0FqQjs7QURHQTtFQUNFLFVBQVU7QUNBWjs7QURHQTtFQUNFLGFBQWE7QUNBZjs7QURHQTtFQUNFLG9CQUFvQjtFQUNwQixhQUFhO0FDQWY7O0FER0E7RUFDRSxnQkFBZ0I7RUFDaEIscUJBQXFCO0VBQ3JCLFVBQVU7RUFDViwyQkFBMkI7QUNBN0I7O0FER0E7RUFDRSxhQUFhO0VBQ2Isc0JBQXNCO0VBQ3RCLHVCQUF1QjtFQUN2Qix1QkFBdUI7QUNBekI7O0FER0E7RUFDRSxxQkFBcUI7QUNBdkI7O0FER0E7RUFDSSx5QkFBaUI7VUFBakIsaUJBQWlCO0VBQ2pCLDhCQUFzQjtVQUF0QixzQkFBc0I7QUNBMUI7O0FER0E7RUFDRSxpQkFBaUI7RUFDakIsaUJBQWlCO0VBQ2pCLFdBQVc7RUFDWCxpQkFBaUI7QUNBbkI7O0FER0E7RUFDRSxtQkFBMkI7RUFDM0IsWUFBWTtFQUNaLGlDQUFpQztFQUNqQyxrQkFBa0I7RUFDbEIsV0FBVztFQUNYLGlCQUFpQjtFQUNqQixnQkFBZ0I7QUNBbEI7O0FER0E7RUFDRSxtQkFBbUI7QUNBckI7O0FER0E7RUFDRSxjQUFjO0FDQWhCOztBREdBO0VBQ0U7SUFDRSxVQUFVO0VDQVo7RURHQTtJQUNFLFVBQVU7RUNEWjtBQUNGOztBRElBO0VBQ0U7SUFDRSxVQUFVO0VDRFo7RURJQTtJQUNFLFVBQVU7RUNGWjtBQUNGIiwiZmlsZSI6InN0eWxlLmNzcyJ9 */
