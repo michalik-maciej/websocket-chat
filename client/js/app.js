@@ -9,37 +9,47 @@ const elements = {
   messageContentInput: document.getElementById('message-content'),
 };
 
+const socket = io();
+
+socket.on('message', (event) => addMessage(event))
+
+
 function login(event) {
   event.preventDefault();
-  console.log(event.target);
 
   if (elements.userNameInput.value === '') {
-    alert('Provide user name')
+    alert('Provide user name');
   }
   else {
-    userName = elements.userNameInput.value
-    elements.loginForm.classList.remove('show')
-    elements.messagesSection.classList.add('show')
+    userName = elements.userNameInput.value;
+    elements.loginForm.classList.remove('show');
+    elements.messagesSection.classList.add('show');
+    socket.emit('userLoggedIn', userName)
   }
 
 }
 
 function sendMessage(event) {
-  event.preventDefault()
+  event.preventDefault();
   if (elements.messageContentInput.value !== '') {
-    addMessage({ author: userName, content: elements.messageContentInput.value })
-    elements.messageContentInput.value = ''
+    const payload = {
+      author: userName, 
+      content: elements.messageContentInput.value
+    }
+    addMessage(payload);
+    socket.emit('message', payload)
+    elements.messageContentInput.value = '';
   }
-  else alert('message is an empty string')
+  else alert('message is an empty string');
 }
 
 function addMessage({ author, content }) {
-  const message = document.createElement('li')
-  message.classList.add('message', 'message--received')
+  const message = document.createElement('li');
+  message.classList.add('message', 'message--received');
 
   if (author === userName) {
-    message.classList.add('message--self')
-    author = `You`
+    message.classList.add('message--self');
+    author = `You`;
   }
 
   message.innerHTML = 
@@ -48,17 +58,17 @@ function addMessage({ author, content }) {
     </h3>
     <div class='message__content'>
       ${content}
-    </div>`
+    </div>`;
 
-  elements.messagesList.appendChild(message)
+  elements.messagesList.appendChild(message);
 }
 
 function removeAutocomplete (arr) {
   arr.forEach(item => {
-    item.setAttribute('autocomplete', 'off')
-  })
+    item.setAttribute('autocomplete', 'off');
+  });
 }
 
 elements.loginForm.addEventListener('submit', login);
 elements.addMessageForm.addEventListener('submit', sendMessage);
-removeAutocomplete([ elements.userNameInput, elements.messageContentInput ])
+removeAutocomplete([ elements.userNameInput, elements.messageContentInput ]);
